@@ -1,6 +1,12 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import VisitasFooter from '@/Components/VisitasFooter.vue';
 import { Head } from '@inertiajs/vue3';
+
+defineProps({
+    visitas: Object
+});
+
 </script>
 
 <template>
@@ -26,5 +32,8 @@ import { Head } from '@inertiajs/vue3';
                 </div>
             </div>
         </div>
+
+        <VisitasFooter :visitas="visitas.cant" />
+
     </AuthenticatedLayout>
 </template>
