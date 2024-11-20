@@ -39,6 +39,12 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Dashboard
                                 </NavLink>
+                                <NavLink
+                                    :href="route('pizzas.index')"
+                                    :active="route().current('pizzas.index')"
+                                >
+                                    Pizzas
+                                </NavLink>
                             </div>
                         </div>
 
@@ -145,6 +151,12 @@ const showingNavigationDropdown = ref(false);
                             :active="route().current('dashboard')"
                         >
                             Dashboard
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            :href="route('pizzas.index')"
+                            :active="route().current('pizzas.index')"
+                        >
+                            Pizzas
                         </ResponsiveNavLink>
                     </div>
 

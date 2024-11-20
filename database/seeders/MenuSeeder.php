@@ -49,7 +49,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => '4 QUESOS',
             'precio' => 56.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101685/CuatroQuesos_guachl.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101685/Pizzeria/CuatroQuesos_guachl.jpg',
             'descripcion' => 'MOZZARELLA, CHEDDAR, REQUESÓN Y ROQUEFORT.',
             'tamano_id' => $grande->id,
             'categoria_id' => $premium->id
@@ -58,7 +58,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => '4 QUESOS',
             'precio' => 32.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101685/CuatroQuesos_guachl.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101685/Pizzeria/CuatroQuesos_guachl.jpg',
             'descripcion' => 'MOZZARELLA, CHEDDAR, REQUESÓN Y ROQUEFORT.',
             'tamano_id' => $pequeña->id,
             'categoria_id' => $premium->id
@@ -67,7 +67,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'STROGONOFF',
             'precio' => 54.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101687/Strogonoff_aet15x.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101687/Pizzeria/Strogonoff_aet15x.jpg',
             'descripcion' => 'POLLO, JAMÓN, PAPAS FRITAS Y MOZZARELLA.',
             'tamano_id' => $grande->id,
             'categoria_id' => $premium->id
@@ -76,7 +76,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'STROGONOFF',
             'precio' => 30.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101687/Strogonoff_aet15x.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101687/Pizzeria/Strogonoff_aet15x.jpg',
             'descripcion' => 'POLLO, JAMÓN, PAPAS FRITAS Y MOZZARELLA.',
             'tamano_id' => $pequeña->id,
             'categoria_id' => $premium->id
@@ -85,7 +85,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'CARNIVORA',
             'precio' => 54.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101682/Carnivora_fkdn1k.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101682/Pizzeria/Carnivora_fkdn1k.jpg',
             'descripcion' => 'CARNE MOLIDA, JAMÓN, CHOCLO Y CHEDDAR.',
             'tamano_id' => $grande->id,
             'categoria_id' => $premium->id
@@ -94,7 +94,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'CARNIVORA',
             'precio' => 30.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101682/Carnivora_fkdn1k.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101682/Pizzeria/Carnivora_fkdn1k.jpg',
             'descripcion' => 'CARNE MOLIDA, JAMÓN, CHOCLO Y CHEDDAR.',
             'tamano_id' => $pequeña->id,
             'categoria_id' => $premium->id
@@ -103,7 +103,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'PERNIL',
             'precio' => 52.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101685/Pernil_oapxf1.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101685/Pizzeria/Pernil_oapxf1.jpg',
             'descripcion' => 'PERNIL DE CERDO, PIMENTÓN, CHOCLO Y MOZZARELLA.',
             'tamano_id' => $grande->id,
             'categoria_id' => $premium->id
@@ -112,7 +112,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'PERNIL',
             'precio' => 28.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101685/Pernil_oapxf1.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101685/Pizzeria/Pernil_oapxf1.jpg',
             'descripcion' => 'PERNIL DE CERDO, PIMENTÓN, CHOCLO Y MOZZARELLA.',
             'tamano_id' => $pequeña->id,
             'categoria_id' => $premium->id
@@ -121,7 +121,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => '3 QUESOS',
             'precio' => 50.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101686/TresQuesos_ona1hf.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101686/Pizzeria/TresQuesos_ona1hf.jpg',
             'descripcion' => 'MOZZARELLA, CHEDDAR Y REQUESÓN.',
             'tamano_id' => $grande->id,
             'categoria_id' => $premium->id
@@ -130,7 +130,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => '3 QUESOS',
             'precio' => 28.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101686/TresQuesos_ona1hf.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101686/Pizzeria/TresQuesos_ona1hf.jpg',
             'descripcion' => 'MOZZARELLA, CHEDDAR Y REQUESÓN.',
             'tamano_id' => $pequeña->id,
             'categoria_id' => $premium->id
@@ -145,7 +145,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'CALABRESA',
             'precio' => 48.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101682/Calabresa_ow4yvl.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101682/Pizzeria/Calabresa_ow4yvl.jpg',
             'descripcion' => 'CALABRESA, MOZZARELLA, CHOCLO O ACEITUNAS.',
             'tamano_id' => $grande->id,
             'categoria_id' => $normal->id
@@ -154,7 +154,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'CALABRESA',
             'precio' => 26.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101682/Calabresa_ow4yvl.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101682/Pizzeria/Calabresa_ow4yvl.jpg',
             'descripcion' => 'CALABRESA, MOZZARELLA, CHOCLO O ACEITUNAS.',
             'tamano_id' => $pequeña->id,
             'categoria_id' => $normal->id
@@ -163,7 +163,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'AMERICANA',
             'precio' => 48.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101686/Americana_gcr3xy.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101686/Pizzeria/Americana_gcr3xy.jpg',
             'descripcion' => 'HUEVO, TOCINO Y MOZZARELLA.',
             'tamano_id' => $grande->id,
             'categoria_id' => $normal->id
@@ -172,7 +172,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'AMERICANA',
             'precio' => 26.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101686/Americana_gcr3xy.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101686/Pizzeria/Americana_gcr3xy.jpg',
             'descripcion' => 'HUEVO, TOCINO Y MOZZARELLA.',
             'tamano_id' => $pequeña->id,
             'categoria_id' => $normal->id
@@ -181,7 +181,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'PEPERONI',
             'precio' => 48.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101686/Peperoni_ahvta0.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101686/Pizzeria/Peperoni_ahvta0.jpg',
             'descripcion' => 'PEPERONI Y MOZZARELLA.',
             'tamano_id' => $grande->id,
             'categoria_id' => $normal->id
@@ -190,7 +190,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'PEPERONI',
             'precio' => 26.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101686/Peperoni_ahvta0.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101686/Pizzeria/Peperoni_ahvta0.jpg',
             'descripcion' => 'PEPERONI Y MOZZARELLA.',
             'tamano_id' => $pequeña->id,
             'categoria_id' => $normal->id
@@ -199,7 +199,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'VEGETARIANA',
             'precio' => 48.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101687/Vegetariana_wmjio1.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101687/Pizzeria/Vegetariana_wmjio1.jpg',
             'descripcion' => 'TOMATE, CHAMPIÑONES, PIMENTÓN, CHOCLO Y MOZZARELLA.',
             'tamano_id' => $grande->id,
             'categoria_id' => $normal->id
@@ -208,7 +208,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'VEGETARIANA',
             'precio' => 26.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101687/Vegetariana_wmjio1.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101687/Pizzeria/Vegetariana_wmjio1.jpg',
             'descripcion' => 'TOMATE, CHAMPIÑONES, PIMENTÓN, CHOCLO Y MOZZARELLA.',
             'tamano_id' => $pequeña->id,
             'categoria_id' => $normal->id
@@ -217,7 +217,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'HAWAIANA',
             'precio' => 46.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101683/Hawaiana_tct2sz.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101683/Pizzeria/Hawaiana_tct2sz.jpg',
             'descripcion' => 'JAMÓN, PIÑA Y MOZZARELLA.',
             'tamano_id' => $grande->id,
             'categoria_id' => $normal->id
@@ -226,7 +226,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'HAWAIANA',
             'precio' => 24.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101683/Hawaiana_tct2sz.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101683/Pizzeria/Hawaiana_tct2sz.jpg',
             'descripcion' => 'JAMÓN, PIÑA Y MOZZARELLA.',
             'tamano_id' => $pequeña->id,
             'categoria_id' => $normal->id
@@ -235,7 +235,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'CLÁSICA',
             'precio' => 44.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101683/Clasica_zlmovf.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101683/Pizzeria/Clasica_zlmovf.jpg',
             'descripcion' => 'JAMÓN, CHOCLO Y MOZZARELLA.',
             'tamano_id' => $grande->id,
             'categoria_id' => $normal->id
@@ -244,7 +244,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'CLÁSICA',
             'precio' => 24.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101683/Clasica_zlmovf.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101683/Pizzeria/Clasica_zlmovf.jpg',
             'descripcion' => 'JAMÓN, CHOCLO Y MOZZARELLA.',
             'tamano_id' => $pequeña->id,
             'categoria_id' => $normal->id
@@ -253,7 +253,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'MARGARITA',
             'precio' => 40.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101683/Margarita_e5usaj.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101683/Pizzeria/Margarita_e5usaj.jpg',
             'descripcion' => 'TOMATE Y MOZZARELLA.',
             'tamano_id' => $grande->id,
             'categoria_id' => $normal->id
@@ -262,7 +262,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'MARGARITA',
             'precio' => 22.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101683/Margarita_e5usaj.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101683/Pizzeria/Margarita_e5usaj.jpg',
             'descripcion' => 'TOMATE Y MOZZARELLA.',
             'tamano_id' => $pequeña->id,
             'categoria_id' => $normal->id
@@ -271,7 +271,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'ECONÓMICA',
             'precio' => 38.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101684/Economica_noy7za.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101684/Pizzeria/Economica_noy7za.jpg',
             'descripcion' => 'MOZZARELLA Y ORÉGANO.',
             'tamano_id' => $grande->id,
             'categoria_id' => $normal->id
@@ -280,7 +280,7 @@ class MenuSeeder extends Seeder
         Pizza::create([
             'nombre' => 'ECONÓMICA',
             'precio' => 22.00,
-            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101684/Economica_noy7za.jpg',
+            'imagen_url' => 'https://res.cloudinary.com/dt0pbqivj/image/upload/v1702101684/Pizzeria/Economica_noy7za.jpg',
             'descripcion' => 'MOZZARELLA Y ORÉGANO.',
             'tamano_id' => $pequeña->id,
             'categoria_id' => $normal->id

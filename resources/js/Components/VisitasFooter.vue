@@ -1,7 +1,10 @@
 <script setup>
 
 defineProps({
-    visitas: Number
+    visitas: {
+        type: Number,
+        required: true
+    }
 });
 
 </script>
