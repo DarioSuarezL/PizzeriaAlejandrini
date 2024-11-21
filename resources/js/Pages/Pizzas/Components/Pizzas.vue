@@ -19,7 +19,7 @@ defineProps({
         <h1 class="mt-3 text-2xl font-medium text-gray-900">
             Menú de pizzas
         </h1>
-        <Link class="m-5 p-2 bg-red-800 hover:bg-red-700 rounded-lg" href="/pizzas/create">
+        <Link class="m-5 p-2 bg-red-800 hover:bg-red-700 rounded-lg" :href="route('pizzas.create')">
             <p class="text-white">+ Nueva pizza</p>
         </Link>
     </div>

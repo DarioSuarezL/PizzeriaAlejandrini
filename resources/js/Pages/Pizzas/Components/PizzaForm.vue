@@ -5,7 +5,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import TextInput from '@/Components/TextInput.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 
-defineProps({
+const props = defineProps({
     tamanos: {
         type: Array,
         required: true
@@ -13,20 +13,36 @@ defineProps({
     categorias: {
         type: Array,
         required: true
+    },
+    pizza: {
+        type: Object,
+        required: false
     }
+
 })
-
-
 
 const form = useForm({
     nombre: '',
-    precio: '0',
+    precio: '',
     tamano_id: '0',
     categoria_id: '0',
     descripcion: '',
     foto: null,
     foto_preview: null,
-})
+});
+
+const buttonLabel = props.pizza ? 'Editar pizza' : 'Registrar pizza';
+
+// Asignar valores si existe `pizza`
+
+if (props.pizza) {
+    form.nombre = props.pizza.nombre;
+    form.precio = props.pizza.precio;
+    form.tamano_id = props.pizza.tamano_id;
+    form.categoria_id = props.pizza.categoria_id;
+    form.descripcion = props.pizza.descripcion;
+    form.foto_preview = props.pizza.imagen_url;
+}
 
 const handleFileChange = (e) => {
     form.foto = e.target.files[0];
@@ -34,9 +50,12 @@ const handleFileChange = (e) => {
 };
 
 const submit = () => {
-    // console.log(form.nombre, form.precio, form.tamano_id, form.categoria_id, form.descripcion, form.foto);
-
-    form.post(route('pizzas.store'));
+    form.precio = parseFloat(form.precio);
+    if (props.pizza) {
+        form.put(route('pizzas.update', props.pizza.id));
+    } else{
+        form.post(route('pizzas.store'));
+    }
 };
 
 
@@ -76,7 +95,7 @@ const submit = () => {
 
                 <TextInput
                     id="precio"
-                    type="number"
+                    type="text"
                     class="mt-1 block w-full"
                     v-model.number="form.precio"
                     required
@@ -185,7 +204,7 @@ const submit = () => {
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
-                    Registrar pizza
+                    {{buttonLabel}}
                 </PrimaryButton>
             </div>
         </form>

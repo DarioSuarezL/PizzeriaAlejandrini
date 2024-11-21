@@ -13,7 +13,7 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 class PizzaController extends Controller
 {
     public function index(){
-        $pizzas = Pizza::all();
+        $pizzas = Pizza::orderBy('id')->get();
         $visitas = Visita::where('page_name', 'pizzas.index')->first();
 
         return Inertia::render('Pizzas/Index', [
@@ -27,7 +27,6 @@ class PizzaController extends Controller
         $categorias = Categoria::all();
         $tamanos = Tamano::all();
 
-        // dd($categorias, $tamanos);
         return Inertia::render('Pizzas/Create', [
             'categorias' => $categorias,
             'tamanos' => $tamanos
@@ -35,7 +34,15 @@ class PizzaController extends Controller
     }
 
     public function store(Request $request){
-        // dd($request->foto);
+        $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required|max:255',
+            'precio' => 'required|numeric',
+            'categoria_id' => 'required|exists:categorias,id',
+            'tamano_id' => 'required|exists:tamanos,id',
+            'foto' => 'required|image'
+        ]);
+
         $imagen_url = cloudinary()->upload($request->foto->getRealPath(),[
             'folder' => 'Pizzeria',
         ])->getSecurePath();
@@ -47,6 +54,57 @@ class PizzaController extends Controller
             'tamano_id' => $request->tamano_id,
             'imagen_url' => $imagen_url
         ]);
+        return redirect()->route('pizzas.index');
+    }
+
+    public function edit(Pizza $pizza){
+        $categorias = Categoria::all();
+        $tamanos = Tamano::all();
+
+        return Inertia::render('Pizzas/Edit', [
+            'pizza' => $pizza,
+            'categorias' => $categorias,
+            'tamanos' => $tamanos
+        ]);
+    }
+
+    public function update(Request $request, Pizza $pizza){
+        $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required|max:255',
+            'precio' => 'required|numeric',
+            'categoria_id' => 'required|exists:categorias,id',
+            'tamano_id' => 'required|exists:tamanos,id',
+            'foto' => 'nullable|image'
+        ]);
+        if($request->foto){
+            $imagen_url = cloudinary()->upload($request->foto->getRealPath(),[
+                'folder' => 'Pizzeria',
+            ])->getSecurePath();
+
+            $pizza->update([
+                'nombre' => $request->nombre,
+                'descripcion' => $request->descripcion,
+                'precio' => $request->precio,
+                'categoria_id' => $request->categoria_id,
+                'tamano_id' => $request->tamano_id,
+                'imagen_url' => $imagen_url
+            ]);
+        }
+
+        $pizza->update([
+            'nombre' => $request->nombre,
+            'descripcion' => $request->descripcion,
+            'precio' => $request->precio,
+            'categoria_id' => $request->categoria_id,
+            'tamano_id' => $request->tamano_id,
+        ]);
+
+        return redirect()->route('pizzas.index');
+    }
+
+    public function destroy(Pizza $pizza){
+        $pizza->delete();
         return redirect()->route('pizzas.index');
     }
 

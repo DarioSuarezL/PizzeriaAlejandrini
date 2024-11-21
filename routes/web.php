@@ -27,6 +27,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/pizzas', [PizzaController::class, 'index'])->middleware(['auth', 'visitas'])->name('pizzas.index');
 Route::get('/pizzas/create', [PizzaController::class, 'create'])->middleware(['auth'])->name('pizzas.create');
 Route::post('/pizzas', [PizzaController::class, 'store'])->middleware(['auth'])->name('pizzas.store');
+Route::get('/pizzas/{pizza}/edit', [PizzaController::class, 'edit'])->middleware(['auth'])->name('pizzas.edit');
+Route::put('/pizzas/{pizza}', [PizzaController::class, 'update'])->middleware(['auth'])->name('pizzas.update');
+Route::delete('/pizzas/{pizza}', [PizzaController::class, 'destroy'])->middleware(['auth'])->name('pizzas.destroy');
 
 
 

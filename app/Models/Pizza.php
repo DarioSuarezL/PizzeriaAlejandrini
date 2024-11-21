@@ -15,4 +15,13 @@ class Pizza extends Model
         'categoria_id',
         'disponible'
     ];
+
+    public function categoria(){
+        return $this->belongsTo(Categoria::class);
+    }
+
+    public function tamano(){
+        return $this->belongsTo(Tamano::class);
+    }
+
 }

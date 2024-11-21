@@ -2,13 +2,22 @@
 
 import Car from '@/Components/Car.vue';
 import CustomButton from '@/Components/CustomButton.vue';
+import { Link, useForm } from '@inertiajs/vue3';
 
-defineProps({
+const props = defineProps({
     pizza: {
         type: Object,
         required: true
     }
 });
+
+const form = useForm({});
+
+const submit = () => {
+  if (confirm("¿Estás seguro de que deseas eliminar esta pizza?")) {
+    form.delete(route('pizzas.destroy', props.pizza));
+  }
+};
 
 </script>
 
@@ -37,15 +46,12 @@ defineProps({
                     <!-- @if (auth()->user()->is_admin) -->
                     <div class="flex justify-around m-3">
                         <div class="bg-green-800 p-2 rounded-lg">
-                            <a href="{{route('pizzas.edit', pizza.id)}}">
+                            <Link :href="route('pizzas.edit', pizza)">
                                 <p class="text-white text-sm uppercase"> Editar </p>
-                            </a>
+                            </Link>
                         </div>
 
-                        <form action="" method="POST">
-                            <!-- @csrf
-                             {{route('pizzas.destroy', pizza.id)}}
-                            @method('DELETE') -->
+                        <form @submit.prevent="submit">
                             <CustomButton class="mx-2">
                                 Eliminar
                             </CustomButton>
