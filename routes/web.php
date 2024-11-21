@@ -46,6 +46,8 @@ Route::get('/clientes', [ClienteController::class, 'index'])->middleware(['auth'
 Route::get('/carrito', [CarritoController::class, 'index'])->middleware(['auth'])->name('carrito.index');
 Route::post('/carrito', [CarritoController::class, 'store'])->middleware(['auth'])->name('carrito.store');
 
+Route::delete('/carrito/{detalle}',[CarritoController::class, 'destroy'])->middleware(['auth'])->name('carrito.destroy');
+
 
 
 require __DIR__.'/auth.php';

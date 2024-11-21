@@ -74,4 +74,15 @@ class CarritoController extends Controller
 
     }
 
+    public function destroy(DetallePedido $detalle){
+        $pedido = Pedido::find($detalle->pedido_id);
+        $pedido->total = $pedido->total - $detalle->subtotal;
+        $pedido->save();
+        $detalle->delete();
+        if($pedido->total == 0){
+            $pedido->delete();
+        }
+        return redirect()->route('carrito.index');
+    }
+
 }

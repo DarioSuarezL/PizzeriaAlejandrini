@@ -1,4 +1,6 @@
 <script setup>
+import { useForm } from '@inertiajs/vue3';
+
 
 const props = defineProps({
     pedido: {
@@ -16,6 +18,15 @@ const checkout = () => {
     console.log('checkout');
 }
 
+const del = (detalle) => {
+    const form = useForm({
+        detalle: detalle
+    })
+
+    form.delete(route('carrito.destroy', detalle));
+
+}
+
 </script>
 
 <template>
@@ -31,7 +42,6 @@ const checkout = () => {
                         <th class="px-3 py-3 ">Opciones</th>
                     </tr>
                 </thead>
-                <!-- @foreach ($detalles as $detalle) -->
                 <tbody>
                     <tr class="border-t border-gray-200" v-for="detalle in detalles" :key="detalle.id">
                         <td class=" px-6 py-4 text-center">{{ detalle.pizza.nombre }}</td>
@@ -39,13 +49,15 @@ const checkout = () => {
                         <td class=" px-6 py-4 text-center">{{ detalle.pizza.precio }} Bs.</td>
                         <td class=" px-6 py-4 text-center">{{ detalle.subtotal }} Bs.</td>
                         <td class=" px-6 py-4 text-center">
-                            <!-- <button wire:click="delete({{$detalle->id}})" class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg ">
-                            Eliminar
-                        </button> -->
+                            <button
+                                @click="del(detalle)"
+                                class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-4  rounded-full"
+                            >
+                                X
+                            </button>
                         </td>
                     </tr>
                 </tbody>
-                <!-- @endforeach -->
             </table>
         </div>
 
