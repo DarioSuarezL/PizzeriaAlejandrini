@@ -1,5 +1,6 @@
 <script setup>
 import Pizza from './Pizza.vue';
+import { Link } from '@inertiajs/vue3';
 
 defineProps({
     pizzas: {
@@ -18,9 +19,9 @@ defineProps({
         <h1 class="mt-3 text-2xl font-medium text-gray-900">
             Menú de pizzas
         </h1>
-        <a class="m-5 p-2 bg-red-800 hover:bg-red-700 rounded-lg" href="#">
+        <Link class="m-5 p-2 bg-red-800 hover:bg-red-700 rounded-lg" href="/pizzas/create">
             <p class="text-white">+ Nueva pizza</p>
-        </a>
+        </Link>
     </div>
 
     <div class="flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-5">
