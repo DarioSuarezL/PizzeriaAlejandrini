@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $visitas = Visita::where('page_name', 'dashboard')->first();
+        $visitas = Visita::where('page_name', request()->path())->first();
         return Inertia::render('Dashboard', [
             'visitas' => $visitas
         ]);

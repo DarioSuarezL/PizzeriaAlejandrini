@@ -13,8 +13,20 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 class PizzaController extends Controller
 {
     public function index(){
-        $pizzas = Pizza::orderBy('id')->get();
-        $visitas = Visita::where('page_name', 'pizzas.index')->first();
+        $pizzas = Pizza::orderBy('id')->get()->map(function($pizza){
+            return [
+                'id' => $pizza->id,
+                'nombre' => $pizza->nombre,
+                'descripcion' => $pizza->descripcion,
+                'precio' => $pizza->precio,
+                'catagoria_id' => $pizza->categoria_id,
+                'tamano_id' => $pizza->tamano_id,
+                'categoria' => $pizza->categoria->nombre,
+                'tamano' => $pizza->tamano->nombre,
+                'imagen_url' => $pizza->imagen_url
+            ];
+        });
+        $visitas = Visita::where('page_name', request()->path())->first();
 
         return Inertia::render('Pizzas/Index', [
             'pizzas' => $pizzas,
@@ -55,6 +67,18 @@ class PizzaController extends Controller
             'imagen_url' => $imagen_url
         ]);
         return redirect()->route('pizzas.index');
+    }
+
+    public function show(Pizza $pizza){
+        $visitas = Visita::where('page_name', request()->path())->first();
+        $tamano = Tamano::find($pizza->tamano_id);
+        $categoria = Categoria::find($pizza->categoria_id);
+        return Inertia::render('Pizzas/Show', [
+            'pizza' => $pizza,
+            'visitas' => $visitas,
+            'tamano' => $tamano,
+            'categoria' => $categoria
+        ]);
     }
 
     public function edit(Pizza $pizza){

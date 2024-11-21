@@ -17,7 +17,7 @@ class VisitasMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $page_name = Route::currentRouteName();
+        $page_name = request()->path();
         $visita = Visita::where('page_name', $page_name)->first();
         if($visita){
             $visita->visited();

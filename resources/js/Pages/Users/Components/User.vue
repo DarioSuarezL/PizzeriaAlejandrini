@@ -23,7 +23,14 @@ const submit = () => {
     <div class="bg-white m-2 rounded-lg flex border justify-between">
         <div>
             <p class=" pt-3 px-3 hover:text-xl hover:text-red-800 font-bold">{{ user.name }}</p>
-            <p class=" px-3">Correo: {{ user.email }}</p>
+            <p class=" px-3"><span class="font-bold">Correo:</span> {{ user.email }}</p>
+
+            <div v-if="user.cliente">
+                <p class="px-3"><span class="font-bold">Celular:</span> {{ user.cliente.numero_telf }}</p>
+                <p class="px-3"><span class="font-bold">Direccion:</span> {{ user.cliente.direccion }}</p>
+                <p class="px-3"><span class="font-bold">CI/NIT:</span> {{ user.cliente.ci_nit }}</p>
+
+            </div>
         </div>
         <div class="flex flex-col justify-center">
 

@@ -26,7 +26,7 @@ const submit = () => {
     <div class="bg-white m-2 rounded-lg flex border">
         <img :src="pizza.imagen_url" class="rounded-l-lg" width="200" alt="{{pizza.nombre}}">
         <div>
-            <a class=" pt-3 px-3 hover:text-xl font-bold hover:text-red-800 hover:cursor-pointer" href="#">{{ pizza.nombre }}</a>
+            <Link class=" pt-3 px-3 hover:text-xl font-bold hover:text-red-800 hover:cursor-pointer uppercase" :href="route('pizzas.show', pizza)">{{ pizza.nombre }} - {{ pizza.tamano }}</Link>
             <!-- {{route('pizzas.show', pizza.id)}} -->
             <p class=" px-3"><span class="font-bold">Precio:</span> {{ pizza.precio }} Bs.</p>
             <p class=" px-3 lowercase">
@@ -34,13 +34,13 @@ const submit = () => {
                 {{ pizza.descripcion }}
             </p>
 
-            <a class="m-3 bg-red-800 hover:bg-red-700 p-5 inline-block rounded-lg" href="#">
+            <Link class="m-3 bg-red-800 hover:bg-red-700 p-5 inline-block rounded-lg" href="#">
                 <div class="flex justify-center">
                     <p class="text-white">+</p>
                     <!-- <x-car></x-car> -->
                     <Car />
                 </div>
-            </a>
+            </Link>
 
 
             <!-- @if (auth()->user()->is_admin) -->

@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             MenuSeeder::class,
             PagoMetodosSeeder::class,
             PagoEstadosSeeder::class,
+            PedidoEstadosSeeder::class,
         ]);
     }
 }

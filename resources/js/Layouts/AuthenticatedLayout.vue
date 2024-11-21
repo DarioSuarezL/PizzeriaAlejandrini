@@ -51,6 +51,24 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Users
                                 </NavLink>
+                                <NavLink
+                                    :href="route('cajeros.index')"
+                                    :active="route().current('cajeros.index')"
+                                >
+                                    Cajeros
+                                </NavLink>
+                                <NavLink
+                                    :href="route('clientes.index')"
+                                    :active="route().current('clientes.index')"
+                                >
+                                    Clientes
+                                </NavLink>
+                                <NavLink
+                                    :href="route('carrito.index')"
+                                    :active="route().current('carrito.index')"
+                                >
+                                    Carrito de compras
+                                </NavLink>
                             </div>
                         </div>
 
@@ -169,6 +187,24 @@ const showingNavigationDropdown = ref(false);
                             :active="route().current('users.index')"
                         >
                             Users
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            :href="route('cajeros.index')"
+                            :active="route().current('cajeros.index')"
+                        >
+                            Cajeros
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            :href="route('clientes.index')"
+                            :active="route().current('clientes.index')"
+                        >
+                            Clientes
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            :href="route('carrito.index')"
+                            :active="route().current('carrito.index')"
+                        >
+                            Carrito de compras
                         </ResponsiveNavLink>
                     </div>
 
