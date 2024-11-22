@@ -13,4 +13,8 @@ class DetallePedido extends Model
         return $this->belongsTo(Pizza::class);
     }
 
+    public function pedido(){
+        return $this->belongsTo(Pedido::class);
+    }
+
 }

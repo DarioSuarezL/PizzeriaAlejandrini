@@ -24,4 +24,8 @@ class Pizza extends Model
         return $this->belongsTo(Tamano::class);
     }
 
+    public function detalles(){
+        return $this->hasMany(DetallePedido::class);
+    }
+
 }

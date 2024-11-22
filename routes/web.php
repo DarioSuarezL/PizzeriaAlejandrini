@@ -48,6 +48,8 @@ Route::post('/carrito', [CarritoController::class, 'store'])->middleware(['auth'
 
 Route::delete('/carrito/{detalle}',[CarritoController::class, 'destroy'])->middleware(['auth'])->name('carrito.destroy');
 
+Route::get('/historial', [HistorialController::class, 'index'])->middleware(['auth', 'visitas'])->name('historial.index');
+
 
 
 require __DIR__.'/auth.php';
