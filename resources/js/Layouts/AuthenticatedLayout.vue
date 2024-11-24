@@ -69,6 +69,12 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Carrito de compras
                                 </NavLink>
+                                <NavLink
+                                    :href="route('historial.index')"
+                                    :active="route().current('historial.index')"
+                                >
+                                    Historial de compras
+                                </NavLink>
                             </div>
                         </div>
 
@@ -205,6 +211,12 @@ const showingNavigationDropdown = ref(false);
                             :active="route().current('carrito.index')"
                         >
                             Carrito de compras
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            :href="route('historial.index')"
+                            :active="route().current('historial.index')"
+                        >
+                            Historial de pedidos
                         </ResponsiveNavLink>
                     </div>
 

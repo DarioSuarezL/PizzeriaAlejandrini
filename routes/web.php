@@ -10,6 +10,7 @@ use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HistorialController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -48,7 +49,7 @@ Route::post('/carrito', [CarritoController::class, 'store'])->middleware(['auth'
 
 Route::delete('/carrito/{detalle}',[CarritoController::class, 'destroy'])->middleware(['auth'])->name('carrito.destroy');
 
-Route::get('/historial', [HistorialController::class, 'index'])->middleware(['auth', 'visitas'])->name('historial.index');
+Route::get('/historial', [HistorialController::class, 'index'])->middleware(['auth'])->name('historial.index');
 
 
 

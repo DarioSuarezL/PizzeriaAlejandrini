@@ -1,14 +1,16 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import VisitasFooter from '@/Components/VisitasFooter.vue';
 import { Head } from '@inertiajs/vue3';
+import Pedidos from './Components/Pedidos.vue';
 
 defineProps({
 
-    visitas: {
-        type: Object,
+    pedidos: {
+        type: Array,
         required: true
     }
+
+
 });
 
 </script>
@@ -29,13 +31,11 @@ defineProps({
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
-
+                        <Pedidos :pedidos="pedidos" />
                     </div>
                 </div>
             </div>
         </div>
-
-        <VisitasFooter :visitas="visitas.cant" />
 
     </AuthenticatedLayout>
 </template>

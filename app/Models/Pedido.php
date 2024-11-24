@@ -13,4 +13,20 @@ class Pedido extends Model
         return $this->hasMany(DetallePedido::class);
     }
 
+    public function cliente(){
+        return $this->belongsTo(Cliente::class);
+    }
+
+    public function pagoMetodo(){
+        return $this->belongsTo(PagoMetodo::class);
+    }
+
+    public function pagoEstado(){
+        return $this->belongsTo(PagoEstado::class);
+    }
+
+    public function pedidoEstado(){
+        return $this->belongsTo(PedidoEstado::class);
+    }
+
 }
