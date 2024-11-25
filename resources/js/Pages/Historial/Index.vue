@@ -19,9 +19,8 @@ const detalles = ref([]);
 const total = ref([]);
 
 const showDetalles = ({detalles: detallesRec, total: totalRec}) => {
-    // alert('Detalles: ' + detalles + ' Total: ' + typeof(total));
     detalles.value = detallesRec;
-    total.value = totalRec;
+    total.value = parseFloat(totalRec);
 }
 
 </script>
