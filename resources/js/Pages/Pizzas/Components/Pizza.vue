@@ -29,6 +29,7 @@ const submit = () => {
             <Link class=" pt-3 px-3 hover:text-xl font-bold hover:text-red-800 hover:cursor-pointer uppercase" :href="route('pizzas.show', pizza)">{{ pizza.nombre }} - {{ pizza.tamano }}</Link>
             <!-- {{route('pizzas.show', pizza.id)}} -->
             <p class=" px-3"><span class="font-bold">Precio:</span> {{ pizza.precio }} Bs.</p>
+            <p class=" px-3"><span class="font-bold">Categoría:</span> {{ pizza.categoria }}</p>
             <p class=" px-3 lowercase">
                 <span class="font-bold capitalize">Descripción: </span>
                 {{ pizza.descripcion }}
@@ -37,7 +38,6 @@ const submit = () => {
             <Link class="m-3 bg-red-800 hover:bg-red-700 p-5 inline-block rounded-lg" href="#">
                 <div class="flex justify-center">
                     <p class="text-white">+</p>
-                    <!-- <x-car></x-car> -->
                     <Car />
                 </div>
             </Link>

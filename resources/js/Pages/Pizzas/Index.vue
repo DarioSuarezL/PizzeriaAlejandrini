@@ -1,11 +1,12 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import VisitasFooter from '@/Components/VisitasFooter.vue';
+import PizzaSearch from './Components/PizzaSearch.vue';
+import { ref, onMounted } from 'vue';
 import { Head } from '@inertiajs/vue3';
-
 import Pizzas from './Components/Pizzas.vue';
 
-defineProps({
+const props = defineProps({
     pizzas: {
         type: Array,
         required: true
@@ -15,6 +16,23 @@ defineProps({
         required: true
     }
 });
+
+const pizzaList = ref([]);
+
+onMounted(() => {
+    pizzaList.value = props.pizzas;
+});
+
+const searchPizzas = (search) => {
+    pizzaList.value = props.pizzas.filter(pizza =>
+        pizza.nombre.toLowerCase().includes(search.toLowerCase()) ||
+        pizza.descripcion.toLowerCase().includes(search.toLowerCase()) ||
+        pizza.tamano.toLowerCase().includes(search.toLowerCase()) ||
+        pizza.categoria.toLowerCase().includes(search.toLowerCase())
+    );
+    // pizzaList.value = props.pizzas.filter(pizza => pizza.tamano.toLowerCase().includes(search.toLowerCase()));
+
+}
 
 </script>
 
@@ -34,7 +52,8 @@ defineProps({
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
-                        <Pizzas :pizzas="pizzas"  />
+                        <PizzaSearch @searchPizzas="searchPizzas" />
+                        <Pizzas :pizzas="pizzaList" />
                     </div>
                 </div>
             </div>
