@@ -19,7 +19,7 @@ defineProps({
             </h1>
         </div>
 
-        <div class="flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-5">
+        <div class="flex flex-col lg:grid lg:grid-cols-2">
             <User v-for="user in users" :key="user.id" :user="user" />
         </div>
 

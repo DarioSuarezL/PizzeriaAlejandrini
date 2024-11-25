@@ -96,13 +96,13 @@ const usersChartData = {
                         <div class="flex gap-2">
                             <div class="bg-green-200 mt-5 p-3 rounded-lg flex flex-col justify-center">
                                 <p class="font-bold">Pizza mas vendida: <span class="font-normal">{{
-                                    pizzaMasVendida.pizza.nombre ?? 'N/A' }}</span></p>
-                                <p>Vendida: <span>{{ pizzaMasVendida.total_pedidos ?? 0 }}</span> veces</p>
+                                   pizzaMasVendida?.pizza?.nombre ?? 'N/A'}}</span></p>
+                                <p>Vendida: <span>{{ pizzaMasVendida?.total_pedidos ?? 0 }}</span> veces</p>
                             </div>
                             <div class="bg-red-200 mt-5 p-3 rounded-lg flex flex-col justify-center">
                                 <p class="font-bold">Pizza menos vendida: <span class="font-normal">{{
-                                    pizzaMenosVendida.pizza.nombre ?? 'N/A' }}</span></p>
-                                <p>Vendida: <span>{{ pizzaMenosVendida.total_pedidos ?? 0 }}</span> veces</p>
+                                    pizzaMenosVendida?.pizza?.nombre ?? 'N/A' }}</span></p>
+                                <p>Vendida: <span>{{ pizzaMenosVendida?.total_pedidos ?? 0 }}</span> veces</p>
                             </div>
                             <div class="bg-yellow-200 mt-5 p-3 rounded-lg flex flex-col justify-center">
                                 <p class="font-bold">Total de ganancia: <span class="font-normal"> {{ totalVentas ??

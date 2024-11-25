@@ -9,6 +9,9 @@ import { Head, Link, useForm } from '@inertiajs/vue3';
 const form = useForm({
     name: '',
     email: '',
+    ci_nit: '',
+    numero_telf: '',
+    direccion: '',
     password: '',
     password_confirmation: '',
 });
@@ -26,7 +29,7 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="name" value="Name" />
+                <InputLabel for="name" value="Nombre" />
 
                 <TextInput
                     id="name"
@@ -42,7 +45,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="email" value="Correo electrónico" />
 
                 <TextInput
                     id="email"
@@ -57,7 +60,49 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+                <InputLabel for="ci_nit" value="Cédula de identidad o NIT" />
+
+                <TextInput
+                    id="ci_nit"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.ci_nit"
+                    required
+                />
+
+                <InputError class="mt-2" :message="form.errors.ci_nit" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="numero_telf" value="Número telefónico o celular" />
+
+                <TextInput
+                    id="numero_telf"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.numero_telf"
+                    required
+                />
+
+                <InputError class="mt-2" :message="form.errors.numero_telf" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="direccion" value="Dirección o domicilio" />
+
+                <TextInput
+                    id="direccion"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.direccion"
+                    required
+                />
+
+                <InputError class="mt-2" :message="form.errors.direccion" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="password" value="Contraseña" />
 
                 <TextInput
                     id="password"
@@ -74,7 +119,7 @@ const submit = () => {
             <div class="mt-4">
                 <InputLabel
                     for="password_confirmation"
-                    value="Confirm Password"
+                    value="Confirmar Contraseña"
                 />
 
                 <TextInput
@@ -97,7 +142,7 @@ const submit = () => {
                     :href="route('login')"
                     class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
-                    Already registered?
+                    ¿Ya está registrado?
                 </Link>
 
                 <PrimaryButton
@@ -105,7 +150,7 @@ const submit = () => {
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
-                    Register
+                    Registrarse
                 </PrimaryButton>
             </div>
         </form>

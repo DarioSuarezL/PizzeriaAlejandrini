@@ -7,6 +7,7 @@ defineProps({
     }
 })
 
+
 </script>
 
 <template>
@@ -35,6 +36,10 @@ defineProps({
                         <td class=" px-6 py-4 text-center">
                             <button
                                 class="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4  rounded-full"
+                                @click="$emit('showDetalles', {
+                                    detalles: pedido.detalles,
+                                    total: pedido.total
+                                })"
                             >
                                 Ver
                             </button>

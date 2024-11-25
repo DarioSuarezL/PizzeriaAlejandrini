@@ -15,9 +15,10 @@ class ClientesSeeder extends Seeder
     public function run(): void
     {
         $user1 = User::create([
-            'name' => 'Cliente 1',
-            'email' => 'cliente1@gmail.com',
-            'password' => bcrypt('12345678')
+            'name' => 'Cliente1',
+            'email' => 'cliente1@correo.com',
+            'password' => bcrypt('password'),
+            'is_cliente' => true,
         ])->assignRole('cliente');
 
         Cliente::create([
@@ -28,9 +29,10 @@ class ClientesSeeder extends Seeder
         ]);
 
         $user2 = User::create([
-            'name' => 'Cliente 2',
-            'email' => 'cliente2@gmail.com',
-            'password' => bcrypt('12345678')
+            'name' => 'Cliente2',
+            'email' => 'cliente2@correo.com',
+            'password' => bcrypt('password'),
+            'is_cliente' => true,
         ])->assignRole('cliente');
 
         Cliente::create([

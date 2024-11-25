@@ -36,6 +36,7 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink
                                     :href="route('dashboard')"
                                     :active="route().current('dashboard')"
+                                    v-if="$page.props.auth.user.is_admin"
                                 >
                                     Dashboard
                                 </NavLink>
@@ -48,30 +49,35 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink
                                     :href="route('users.index')"
                                     :active="route().current('users.index')"
+                                    v-if="$page.props.auth.user.is_admin"
                                 >
                                     Users
                                 </NavLink>
                                 <NavLink
                                     :href="route('cajeros.index')"
                                     :active="route().current('cajeros.index')"
+                                    v-if="$page.props.auth.user.is_admin"
                                 >
                                     Cajeros
                                 </NavLink>
                                 <NavLink
                                     :href="route('clientes.index')"
                                     :active="route().current('clientes.index')"
+                                    v-if="$page.props.auth.user.is_admin"
                                 >
                                     Clientes
                                 </NavLink>
                                 <NavLink
                                     :href="route('carrito.index')"
                                     :active="route().current('carrito.index')"
+                                    v-if="$page.props.auth.user.is_cliente"
                                 >
                                     Carrito de compras
                                 </NavLink>
                                 <NavLink
                                     :href="route('historial.index')"
                                     :active="route().current('historial.index')"
+                                    v-if="$page.props.auth.user.is_cliente"
                                 >
                                     Historial de compras
                                 </NavLink>
@@ -179,6 +185,7 @@ const showingNavigationDropdown = ref(false);
                         <ResponsiveNavLink
                             :href="route('dashboard')"
                             :active="route().current('dashboard')"
+                            v-if="$page.props.auth.user.is_admin"
                         >
                             Dashboard
                         </ResponsiveNavLink>
@@ -191,30 +198,35 @@ const showingNavigationDropdown = ref(false);
                         <ResponsiveNavLink
                             :href="route('users.index')"
                             :active="route().current('users.index')"
+                            v-if="$page.props.auth.user.is_admin"
                         >
                             Users
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
                             :href="route('cajeros.index')"
                             :active="route().current('cajeros.index')"
+                            v-if="$page.props.auth.user.is_admin"
                         >
                             Cajeros
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
                             :href="route('clientes.index')"
                             :active="route().current('clientes.index')"
+                            v-if="$page.props.auth.user.is_admin"
                         >
                             Clientes
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
                             :href="route('carrito.index')"
                             :active="route().current('carrito.index')"
+                            v-if="$page.props.auth.user.is_cliente"
                         >
                             Carrito de compras
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
                             :href="route('historial.index')"
                             :active="route().current('historial.index')"
+                            v-if="$page.props.auth.user.is_cliente"
                         >
                             Historial de pedidos
                         </ResponsiveNavLink>

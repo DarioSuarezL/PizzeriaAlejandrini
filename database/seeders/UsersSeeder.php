@@ -18,7 +18,9 @@ class UsersSeeder extends Seeder
             'name' => 'Dario Suarez Lazarte',
             'email' => 'dsuarezlazarte@gmail.com',
             'password' => bcrypt('password'),
-        ])->assignRole('admin');
+            'is_admin' => true,
+            'is_cliente' => true,
+        ])->assignRole(['admin', 'cliente']);
 
         Cliente::create([
             'user_id' => $dario->id,
@@ -27,16 +29,5 @@ class UsersSeeder extends Seeder
             'direccion' => 'Calle 123',
         ]);
 
-        // User::create([
-        //     'name' => 'Dario Suarez Lazarte',
-        //     'email' => 'dsuarezlazarte@gmail.com',
-        //     'password' => bcrypt('password'),
-        // ])->assignRole('admin');
-
-        // User::create([
-        //     'name' => 'Dario Suarez Lazarte',
-        //     'email' => 'dsuarezlazarte@gmail.com',
-        //     'password' => bcrypt('password'),
-        // ])->assignRole('admin');
     }
 }

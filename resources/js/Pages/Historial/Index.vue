@@ -2,6 +2,8 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import Pedidos from './Components/Pedidos.vue';
+import Detalles from './Components/Detalles.vue';
+import { ref } from 'vue';
 
 defineProps({
 
@@ -12,6 +14,15 @@ defineProps({
 
 
 });
+
+const detalles = ref([]);
+const total = ref([]);
+
+const showDetalles = ({detalles: detallesRec, total: totalRec}) => {
+    // alert('Detalles: ' + detalles + ' Total: ' + typeof(total));
+    detalles.value = detallesRec;
+    total.value = totalRec;
+}
 
 </script>
 
@@ -31,7 +42,8 @@ defineProps({
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
-                        <Pedidos :pedidos="pedidos" />
+                        <Pedidos :pedidos="pedidos" @showDetalles="showDetalles"/>
+                        <Detalles :detalles="detalles" :total="total" v-if="detalles.length > 0"/>
                     </div>
                 </div>
             </div>
