@@ -1,6 +1,6 @@
 <script setup>
 
-import Car from '@/Components/Car.vue';
+import Cart from '@/Components/Cart.vue';
 import CustomButton from '@/Components/CustomButton.vue';
 import { Link, useForm } from '@inertiajs/vue3';
 
@@ -38,7 +38,7 @@ const submit = () => {
             <Link class="m-3 bg-red-800 hover:bg-red-700 p-5 inline-block rounded-lg" href="#">
                 <div class="flex justify-center">
                     <p class="text-white">+</p>
-                    <Car />
+                    <Cart :pizza="pizza" />
                 </div>
             </Link>
 
