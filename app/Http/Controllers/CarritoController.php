@@ -7,6 +7,7 @@ use App\Models\Pizza;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
 use App\Models\DetallePedido;
+use GuzzleHttp\Client;
 
 class CarritoController extends Controller
 {
@@ -83,6 +84,72 @@ class CarritoController extends Controller
             $pedido->delete();
         }
         return redirect()->route('carrito.index');
+    }
+
+
+    public function checkout(Request $request){
+
+        $pedido = Pedido::find($request->id);
+
+        $tcCommerceID = env('PAGOFACIL_COMMERCEID');
+        $AccessToken = env('PAGOFACIL_ACCESSTOKEN');
+        // $tcTokenServicio = env('PAGOFACIL_TOKENSERVICE');
+        // $tcTokenSecret = env('PAGOFACIL_TOKENSECRET');
+        $tcUrlCallBack =  env('PAGOFACIL_URLCALLBACK');
+        $tcUrlReturn = env('PAGOFACIL_URLRETURN');
+
+        $url = "https://serviciostigomoney.pagofacil.com.bo/api/servicio/pagoqr";
+
+        $dataHeader = [
+            "Accept" => "*/*",
+            "Authorization" => "Bearer ".$AccessToken,
+            "Content-Type" => "application/json"
+        ];
+
+        $taPedidoDetalle = [
+            "Serial" => $pedido->id,
+            "Producto" => "Pedido ".$pedido->id,
+            "Cantidad" => 1,
+            "Precio" => $pedido->total,
+            "Descuento" => 0,
+            "Total" => $pedido->total,
+        ];
+
+        $dataBody = [
+            "tcCommerceID"          => $tcCommerceID,
+            "tcNroPago"             => "pago ".rand(1000, 9999),
+            "tcNombreUsuario"       => $pedido->cliente->user->name,
+            "tnCiNit"               => (int)$pedido->cliente->ci_nit,
+            "tnTelefono"            => (int)$pedido->cliente->numeroTelf,
+            "tcCorreo"              => $pedido->cliente->user->email,
+            "tcCodigoClienteEmpresa"=> $pedido->cliente->id,
+            "tnMontoClienteEmpresa" => (int)$pedido->total,
+            "tnMoneda"              => 2,
+            "tcUrlCallBack"         => $tcUrlCallBack,
+            "tcUrlReturn"           => $tcUrlReturn,
+            "taPedidoDetalle"       => $taPedidoDetalle,
+            // "tcTokenSecret"         => $tcTokenSecret,
+            // "tcTokenServicio"       => $tcTokenServicio,
+            // "tcPedidoID"            => $this->pedido->id,
+        ];
+
+        $clienteHTTP = new Client();
+
+        $response = $clienteHTTP->request('POST', $url, [
+            'headers' => $dataHeader,
+            'json' => $dataBody
+        ]);
+
+        $decodedJSON = json_decode($response->getBody()->getContents());
+
+        $values = explode(";", $decodedJSON->values)[1];
+        $QR = "data:image/png;base64,".json_decode($values)->qrImage;
+
+        return response()->json(['qr' => $QR]);
+    }
+
+    public function pagado(){
+        return Inertia::render('Carrito/Pagado');
     }
 
 }

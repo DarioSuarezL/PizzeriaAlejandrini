@@ -1,18 +1,43 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
+import axios from 'axios';
+import { ref } from 'vue';
 
 
 const props = defineProps({
+    pedido: {
+        type: Object,
+        required: true
+    },
     detalles: {
         type: Array,
+        required: true
     },
     total: {
         type: Number,
+        required: true
     }
 })
 
+const qr = ref([])
+
+
 const checkout = () => {
-    console.log('checkout');
+
+    try {
+        const url = `/carrito/${props.pedido.id}/checkout`;
+        axios.get(url)
+        .then(response => {
+            qr.value = response.data.qr;
+            console.log(response.data.qr);
+        });
+    } catch (error) {
+        console.log(error);
+    }
+
+
+
+
 }
 
 const del = (detalle) => {
@@ -71,6 +96,10 @@ const del = (detalle) => {
                     </button>
                 </div>
             </div>
+        </div>
+
+        <div class="flex justify-center" v-if="qr.length > 0">
+            <img :src="qr" alt="qr">
         </div>
 
     </div>

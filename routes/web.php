@@ -51,6 +51,10 @@ Route::delete('/carrito/{detalle}',[CarritoController::class, 'destroy'])->middl
 
 Route::get('/historial', [HistorialController::class, 'index'])->middleware(['auth'])->name('historial.index');
 
+Route::get('/carrito/{id}/checkout', [CarritoController::class, 'checkout'])->name('carrito.checkout');
+
+Route::get('/carrito/pagado', [CarritoController::class, 'pagado'])->name('carrito.pagado');
+
 
 
 require __DIR__.'/auth.php';
